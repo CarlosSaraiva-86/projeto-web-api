@@ -11,7 +11,7 @@
   "profiles": {
     "IIS Express": {
       "commandName": "Executable",
-      "executablePath": "C:\\Projetos\\Web.Api\\Web.Api\\Web.Api.Rest\\bin\\Debug\\netcoreapp3.1\\Web.Api.Rest.exe",
+      "executablePath": "C:\\Projetos\\projeto-web-api\\Web.Api\\Web.Api.Rest\\bin\\Debug\\netcoreapp3.1\\Web.Api.Rest.exe",
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {

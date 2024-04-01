@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Web.Api.Data.Repositories;
 using Web.Api.Domain;
 using Web.Api.Domain.Interfaces;
 
@@ -21,7 +20,7 @@ namespace Web.Api.Controllers
         {
             return Ok(await clienteRepository.ObterTodos());
         }
-
+        
         [HttpPost("AdicionarCliente")]
         public async Task<ActionResult> AdicionarCliente(Cliente cliente)
         {
