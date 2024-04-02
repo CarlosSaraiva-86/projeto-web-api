@@ -21,7 +21,7 @@ namespace Web.Api.Controllers
             return Ok(await clienteRepository.ObterTodos());
         }
         
-        [HttpPost("AdicionarCliente")]
+        [HttpPost("Adicionar")]
         public async Task<ActionResult> AdicionarCliente(Cliente cliente)
         {
             await clienteRepository.Adicionar(cliente);

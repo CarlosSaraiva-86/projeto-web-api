@@ -1,19 +1,14 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Web.Api.Data;
 using Web.Api.Data.Repositories;
 using Web.Api.Domain.Interfaces;
+using Microsoft.AspNetCore.Cors;
+
 
 namespace Web.Api.Rest
 {
@@ -36,11 +31,18 @@ namespace Web.Api.Rest
             services.AddSwaggerGen();
 
             services.AddTransient<IClienteRepository, ClienteRepository>();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(builder => builder
+            .AllowAnyHeader()
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            );
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -57,6 +59,7 @@ namespace Web.Api.Rest
             {
                 endpoints.MapControllers();
             });
+            
         }
     }
 }
